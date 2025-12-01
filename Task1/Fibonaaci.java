@@ -7,13 +7,17 @@ import java.util.Scanner;
          }
          int a=0;
          int b=1;
-
+long startTime = System.nanoTime();
          for(int i=1;i<=n;i++){
              System.out.print(a+"\t");
              int c=a+b;
              a=b;
              b=c;
          }
+          long endTime = System.nanoTime();
+        long duration = (endTime - startTime); 
+
+         System.out.println("Execution Time: " + duration + " nanoseconds");
      }
  }
 public class Fibonaaci {
