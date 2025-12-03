@@ -1,0 +1,1 @@
+this is the task 3 for learning file operation in nodejs using fs modulethis is sample text 
