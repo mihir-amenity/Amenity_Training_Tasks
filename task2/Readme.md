@@ -61,7 +61,7 @@ pattern 5
      *
 ```
 
-Code for all above pattern written in java 
+Code for all above pattern written in Javascript 
 
 
 
