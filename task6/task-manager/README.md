@@ -1,16 +1,57 @@
-# React + Vite
+# Task Manager frontend 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This guide demonstrates TaskManger app user can view taks delete takds and filter task based on various Filters in jsx  taks is stored in localStorage 
 
-Currently, two official plugins are available:
+## Project Structure
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+task-manager/
+├── components/
+├      ├──TaskItem.jsx
+├      ├──TaskList.jsx
+├      ├──TaskForm.jsx        
+├── App.jsx
+├── App.css
+└── README.md         
+```
 
-## React Compiler
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Requirments 
+* Add tasks
+* Mark as completed
+* Filter by status
+* Persist in localStorage
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Add tasks
+        -Header with app name and today’s date.
+        Input area:
+		-Text input for task title (required)
+		-Optional description textarea
+		-Priority dropdown: Low | Medium | High
+		-“Add Task” button
+	Task list section:
+		-Show all tasks in cards.
+		Each task shows:
+			-Title
+			-Optional description
+			-Priority (with some visual difference)
+			-Status: Pending / Completed
+		Actions per task:
+			-Mark as completed / undo
+			-Delete task
+
+# Filters & Stats
+		-Filter buttons: All | Pending | Completed
+        -complete searchbar and sorting by high,medium, low order
+		A small stats bar:
+			-Total tasks
+			-Completed tasks
+			-Pending tasks
+            
+
+
+
+
+
+ 

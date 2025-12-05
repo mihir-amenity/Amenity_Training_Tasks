@@ -12,7 +12,7 @@ function FilterBar({
   return (
     <div className="task-list-container">
 
-      
+     {/* /gettting data from props and search        */}
       <div className="search-section">
         <i className="search-icon">🔍</i>
         <input
