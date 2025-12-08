@@ -1,27 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import { Search, CheckCircle, Clock, Trash2 } from 'lucide-react';
-import './TaskList.css'
-import TaskItem from './TaskItem';
-function TaskList({tasks,onComplete,onDelete}) {
+import React from "react";
+import TaskItem from "./TaskItem";
+import "./TaskList.css";
+
+function TaskList({ tasks, onToggleComplete, onDelete }) {
+  if (tasks.length === 0) return <p className="no-tasks">No tasks found.</p>;
 
   return (
-    
-
-    <div className="task-list-container">
-   {tasks.map(task => (
+    <div className="task-list">
+      {tasks.map((task) => (
         <TaskItem
           key={task.id}
           task={task}
-          onToggleComplete={onComplete}
+          onToggleComplete={onToggleComplete}
           onDelete={onDelete}
         />
       ))}
-
-</div>
-
-  )
+    </div>
+  );
 }
 
 export default TaskList;
-
-

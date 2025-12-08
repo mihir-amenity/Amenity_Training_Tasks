@@ -134,44 +134,9 @@ form button:hover {
   opacity: 0.9;
 }
 
-.buttons {
-  display: flex;
-  gap: 10px;
-}
 
-.complete-btn,
-.delete-btn {
-  flex: 1;
-  padding: 10px;
-  border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-  transition: 0.2s;
-}
 
-.complete-btn {
-  background: #27ae60;
-  color: #fff;
-}
 
-.complete-btn:hover {
-  background: #1e8e4d;
-}
-
-.delete-btn {
-  background: #e74c3c;
-  color: #fff;
-}
-
-.delete-btn:hover {
-  background: #c0392b;
-}
-
-.completed {
-  opacity: 0.6;
-  text-decoration: line-through;
-}
 
 
 @media (max-width: 500px) {

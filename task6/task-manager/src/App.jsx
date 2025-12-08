@@ -8,53 +8,75 @@ function App() {
   const current = new Date();
   const date = `${current.getDate()}/${current.getMonth() + 1}/${current.getFullYear()}`;
 
-  const [tasks, setTask] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const saved = localStorage.getItem("tasks");
+    return saved ? JSON.parse(saved) : [];
+  });
 
-  useEffect(() => {
-    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
-    if (savedTasks) {
-      setTask(savedTasks);
-    }
-  }, []);
-
-  const [priority, setPriority] = useState("medium");
-  const [filter, setFilter] = useState("pending"); 
-  const [search, setSearch] = useState("");
-  
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-  const handleAddtask = (newTask) => {
-    setTask([...tasks, newTask]);
+  // Filters
+  const [priorityFilter, setPriorityFilter] = useState("all");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [search, setSearch] = useState("");
+
+  // Add new task
+  const handleAddTask = (newTask) => {
+    setTasks((prev) => [...prev, newTask]);
   };
 
-  const handleComplete = (id) => {
-    setTask(
-      tasks.map((task) =>
-        task.id === id ? { ...task, iscompleted:!task.iscompleted } : task
+  // Toggle complete
+  const handleToggleComplete = (id) => {
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id ? { ...task, iscompleted: !task.iscompleted } : task
       )
     );
   };
 
-  const handleDelete = (taskId) => {
-    setTask((prev) => prev.filter((task) => task.id !== taskId));
+  // Delete task
+  const handleDelete = (id) => {
+    setTasks((prev) => prev.filter((task) => task.id !== id));
   };
 
-//filter all prioritywise then task completed wise ans search filter implemented 
-  const filterTasks = tasks.filter((task) => {
-    const matchesPriority =
-      priority === "medium" || task.priority === priority;
+  // Filter and sort tasks
+  const filteredTasks = tasks
+    .filter((task) => {
+      const matchesPriority =
+        priorityFilter === "all" || task.priority === priorityFilter;
 
-    const matchesStatus =
-      (filter === "completed" && task.iscompleted) ||
-      (filter === "pending" && !task.iscompleted) 
+      const matchesStatus =
+        statusFilter === "all" ||
+        (statusFilter === "completed" && task.iscompleted) ||
+        (statusFilter === "pending" && !task.iscompleted);
 
-    const matchesSearch = task.title.toLowerCase().includes(search);
+      const matchesSearch = task.title
+        .toLowerCase()
+        .includes(search.toLowerCase());
 
-    return matchesPriority && matchesStatus && matchesSearch;
-  });
-//this are for the stats
+      return matchesPriority && matchesStatus && matchesSearch;
+    })
+    .sort((a, b) => {
+      const priorityNum = { High: 3, Medium: 2, Low: 1 };
+
+      // Sort by priority High → Medium → Low
+      if (priorityNum[b.priority] !== priorityNum[a.priority]) {
+        return priorityNum[b.priority] - priorityNum[a.priority];
+      }
+
+      // If same priority, newest first
+      return b.id - a.id;
+    });
+
+//     const filteredTasks = tasks.filter((task) => {
+//   const matchesPriority = priorityFilter === "all" || task.priority === priorityFilter;
+//   const matchesSearch = task.title.toLowerCase().includes(search.toLowerCase());
+//   return matchesPriority && matchesSearch;
+// });
+
+  // Stats
   const stats = {
     total: tasks.length,
     completed: tasks.filter((t) => t.iscompleted).length,
@@ -64,28 +86,25 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <div className="header-content">
-       <h1>Personal Task Manager</h1>
-          <p className="date">{date}</p>
-      </div>
+        <h1>Personal Task Manager</h1>
+        <p className="date">{date}</p>
       </header>
-       
-      {/*  taksform stubmit passed using props */}
-      <TaskForm onAddTask={handleAddtask} />
-{/* filter bar passed using props */}
+
+      <TaskForm onAddTask={handleAddTask} />
+
       <FilterBar
-        filter={filter}
-        priority={priority}
+        filter={statusFilter}
+        priority={priorityFilter}
         search={search}
         stats={stats}
-        onFilterChange={setFilter}
-        onPriorityChange={setPriority}
+        onFilterChange={setStatusFilter}
+        onPriorityChange={setPriorityFilter}
         onSearchChange={setSearch}
       />
-   {/* ALL task passes here andonCpmpletr and onDelete function pass here  */}
+
       <TaskList
-        tasks={filterTasks}
-        onComplete={handleComplete}
+        tasks={filteredTasks}
+        onToggleComplete={handleToggleComplete}
         onDelete={handleDelete}
       />
     </div>

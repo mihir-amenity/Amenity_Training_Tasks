@@ -1,180 +1,113 @@
 
-.filter-bar {
-  background: white;
-  border-radius: 12px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-}
-
-
-.stats-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 2px solid #f0f0f0;
-}
-
-.stat-card {
+.task-list-container {
+  background: #ffffff;
+  padding: 1.2rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  margin-bottom: 1.8rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e8ebf0 100%);
-  border-radius: 8px;
-  transition: transform 0.3s ease;
+  gap: 1rem;
 }
 
-.stat-card:hover {
-  transform: translateY(-3px);
-}
-
-.stat-label {
-  font-size: 0.85rem;
-  color: #666;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.stat-value {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #333;
-}
-
-.stat-completed {
-  color: #22c55e;
-}
-
-.stat-pending {
-  color: #f59e0b;
-}
 
 .search-section {
-  margin-bottom: 1.5rem;
-}
-
-.search-wrapper {
-  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap; 
 }
 
 .search-icon {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #999;
+  font-size: 1.2rem;
 }
 
+
 .search-input {
-  width: 100%;
-  padding: 0.875rem 1rem 0.875rem 3rem;
-  border: 2px solid #e0e0e0;
+  flex: 1;
+  min-width: 180px;
+  padding: 0.6rem 0.9rem;
   border-radius: 8px;
+  border: 1px solid #d1d5db;
   font-size: 1rem;
-  transition: all 0.3s ease;
-  outline: none;
+  background: #f8fafc;
+  transition: 0.2s ease;
 }
 
 .search-input:focus {
-  border-color: #667eea;
-  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-}
-
-.search-input:hover {
-  border-color: #b8b8b8;
+  outline: none;
+  border-color: #6366f1;
+  background: #ffffff;
 }
 
 
-.filter-section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.filter-group {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.filter-label {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #555;
-  min-width: 70px;
-}
-
-.filter-buttons {
-  display: flex;
-  gap: 0.5rem;
-  flex-wrap: wrap;
-}
-
-.filter-btn {
-  padding: 0.5rem 1.25rem;
-  background-color: #f5f7fa;
-  color: #555;
-  border: 2px solid #e0e0e0;
+.status-btn {
+  padding: 0.6rem 0.9rem;
   border-radius: 8px;
-  font-size: 0.9rem;
-  font-weight: 500;
+  border: 1px solid #d1d5db;
+  /* background: #f1f5f9; */
+  font-size: 1rem;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: 0.2s ease;
 }
 
-.filter-btn:hover {
-  background-color: #e8ebf0;
-  border-color: #b8b8b8;
+
+
+.status-btn:focus {
+  outline: none;
+  border-color: #6366f1;
 }
 
-.filter-btn.active {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  color: white;
-  border-color: #667eea;
-  box-shadow: 0 2px 6px rgba(102, 126, 234, 0.3);
+
+.task-stats {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #475569;
+  font-weight: 500;
 }
 
-@media (max-width: 768px) {
-  .stats-section {
-    grid-template-columns: 1fr;
-    gap: 0.75rem;
-  }
-
-  .filter-group {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .filter-label {
-    min-width: auto;
-  }
-
-  .filter-buttons {
-    width: 100%;
-  }
-
-  .filter-btn {
-    flex: 1;
-    min-width: 80px;
-  }
+.task-stats p {
+  margin: 0;
 }
+
 
 @media (max-width: 480px) {
-  .filter-bar {
+  .task-list-container {
     padding: 1rem;
   }
 
-  .stat-value {
-    font-size: 1.5rem;
+  .search-section {
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .filter-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.85rem;
+  .search-input,
+  .status-btn {
+    width: 100%;
+  }
+
+  .task-stats {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .task-stats {
+    font-size: 0.9rem;
+  }
+
+  .search-input {
+    min-width: 150px;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .task-list-container {
+    max-width: 900px;
+    margin: 0 auto 1.8rem auto;
   }
 }

@@ -1,56 +1,35 @@
-import React from 'react';
-import { CheckCircle, Circle, Trash2 } from 'lucide-react';
-import './TaskItem.css';
+import React from "react";
+import { CheckCircle, Circle, Trash2 } from "lucide-react";
+import "./TaskItem.css";
 
 function TaskItem({ task, onToggleComplete, onDelete }) {
-  const handleDelete = () => {
-    if (window.confirm('Are you sure you want to delete this task?')) {
-      onDelete(task.id);
-    }
-  };
-
-
-  
   return (
-    <div className={`task-item ${task.iscompleted ? 'completed' : ''}`}>
+    <div className={`task-item ${task.iscompleted ? "completed" : ""}`}>
+      
+      <button
+        onClick={() => onToggleComplete(task.id)}
+        className="task-btn complete-btn"
+      >
+        {task.iscompleted ? <CheckCircle /> : <Circle />}
+      </button>
+
+    
       <div className="task-content">
-        <button
-          onClick={() => onToggleComplete(task.id)}
-          className="checkbox-btn"
-          aria-label={task.iscompleted ? 'Mark as pending' : 'Mark as completed'}
-        >
-          {task.iscompleted ? (
-            <CheckCircle size={24} className="check-icon checked " />
-          ) : (
-            <Circle size={24} className="check-icon"  />
-          )}
-        </button>
-
-        <div className="task-details">
-          <div className="task-header">
-            <h3 className={`task-title ${task.iscompleted ? 'strikethrough' : ''}`}>
-              {task.title}
-            </h3>
-            <span className={`priority-badge priority-${task.priority}`}>
-              {task.priority}
-            </span>
-          </div>
-
-          {task.description && (
-            <p className={`task-description ${task.iscompleted ? 'strikethrough' : ''}`}>
-              {task.description}
-            </p>
-          )}
-        </div>
-
-        <button
-          onClick={handleDelete}
-          className="delete-btn"
-          aria-label="Delete task"
-        >
-          <Trash2 size={20} />
-        </button>
+        <h3 className={task.iscompleted ? "strikethrough" : ""}>
+          {task.title}
+        </h3>
+        <p className={task.iscompleted ? "strikethrough" : ""}>
+          {task.description}
+        </p>
+        <span className={`priority-badge ${task.priority.toLowerCase()}`}>
+          {task.priority}
+        </span>
       </div>
+
+     
+      <button onClick={() => onDelete(task.id)} className="task-btn delete-btn">
+        <Trash2 />
+      </button>
     </div>
   );
 }
