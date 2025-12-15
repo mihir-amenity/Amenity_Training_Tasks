@@ -1,0 +1,159 @@
+/* Base Layout */
+.signin-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.signin-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+}
+
+.signin-wrapper h3 {
+  margin: 0 0 24px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a202c;
+  text-align: center;
+}
+
+/* Form */
+.signin-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.signin-form label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* Normal Inputs */
+.signin-form input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  background: white;
+  box-sizing: border-box;
+}
+
+.signin-form input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+
+/* .password-field {
+  position: relative;
+  width: 100%;
+} */
+
+
+/* .toggle-icon {
+  position: absolute;
+  right: 14px;
+  top: 85%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+  color: #4a5568;
+  transition: 0.2s ease;
+} */
+
+/* .toggle-icon:hover {
+  color: #667eea;
+} */
+
+/* Forgot password */
+.forgot-password {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+/* Signup link */
+.signin-form p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.signin-form p a {
+  color: #667eea;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signin-form p a:hover {
+  text-decoration: underline;
+}
+
+/* Submit button */
+.signin-form button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 4px;
+  transition: 0.2s ease;
+}
+
+.signin-form button[type="submit"]:hover {
+  background: #596ab6;
+  transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .signin-page {
+    padding: 40px;
+  }
+
+  .signin-wrapper {
+    padding: 40px 36px;
+  }
+
+  .signin-wrapper h3 {
+    font-size: 32px;
+  }
+
+  .signin-form input {
+    padding: 16px 18px;
+    font-size: 16px;
+  }
+
+  .signin-form button[type="submit"] {
+    padding: 16px;
+    font-size: 17px;
+  }
+}
+
+

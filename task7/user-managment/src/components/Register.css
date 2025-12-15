@@ -1,0 +1,183 @@
+
+.register-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  
+}
+
+.register-wrapper {
+  background: white;
+  border-radius: 12px;
+  padding: 30px 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-wrapper h2 {
+  margin: 0 0 24px 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a202c;
+  text-align: center;
+}
+
+.error-message {
+  background: #fee;
+  border: 1px solid #fcc;
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 20px;
+  color: #c33;
+  font-size: 14px;
+  line-height: 1.5;
+ 
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.register-form input[type="email"],
+.register-form input[type="text"],
+.register-form input[type="tel"],
+.register-form input[type="password"] {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  background: white;
+}
+
+
+.password-field {
+  position: relative;
+  width: 100%;
+}
+
+.password-field input {
+  padding-right: 45px; /* space for the icon */
+}
+
+/* Eye Icon */
+.toggle-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  cursor: pointer;
+  color: #4a5568;
+  transition: 0.2s ease;
+}
+
+.toggle-icon:hover {
+  color: #667eea;
+}
+
+
+.register-form input[type="file"] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+
+.register-form p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+  color: #4a5568;
+}
+
+.register-form p a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  margin-left: 4px;
+}
+
+.register-form p a:hover {
+  text-decoration: underline;
+}
+
+.register-form button {
+  width: 100%;
+  padding: 14px;
+ 
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.register-form button:hover {
+  background:#596ab6 ;
+   transform: translateY(-2px);
+}
+
+  
+
+
+@media (min-width: 768px) {
+  .register-page {
+    padding: 40px;
+  }
+
+  .register-wrapper {
+    padding: 40px 36px;
+      max-width:350px;
+  }
+
+  .register-wrapper h2 {
+    font-size: 32px;
+    margin-bottom: 28px;
+  }
+
+  .register-form {
+    gap: 18px;
+  }
+
+  .register-form input[type="email"],
+  .register-form input[type="text"],
+  .register-form input[type="tel"],
+  .register-form input[type="password"] {
+    padding: 16px 18px;
+    font-size: 16px;
+  }
+
+  .register-form button {
+    padding: 16px;
+    font-size: 17px;
+  }
+}
+
+
+/* @media (min-width: 1024px) {
+  .register-wrapper {
+    max-width:400px;
+    padding: 48px 40px;
+  }
+
+  .register-wrapper h2 {
+    font-size: 34px;
+  }
+} */
