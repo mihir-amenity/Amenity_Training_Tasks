@@ -3,8 +3,13 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-    server: {
-    allowedHosts: ["*.ngrok-free.dev", "*.ngrok-free.app"],
+
+  plugins: [react()],
+      server: {
+  allowedHosts: [
+      'nonsolidified-annika-criminally.ngrok-free.dev',
+      'https://nonsolidified-annika-criminally.ngrok-free.dev'
+    ],
     proxy: {
       "/api": {
         target: 'https://nonsolidified-annika-criminally.ngrok-free.dev',
@@ -12,13 +17,12 @@ export default defineConfig({
         secure: false,
       },
     },
+    host: true,
+    port: 5173,
   },
-   server: {
-    allowedHosts: [
-      'nonsolidified-annika-criminally.ngrok-free.dev',
-      'https://nonsolidified-annika-criminally.ngrok-free.dev'
-    ]
-  },
-  plugins: [react()],
+  esbuild: {
+    target: 'esnext',
+  
+  }
    
 })
